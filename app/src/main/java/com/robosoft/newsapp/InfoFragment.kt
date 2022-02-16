@@ -53,7 +53,7 @@ class InfoFragment : Fragment() {
         val article = args.selectedArticle
         fragmentInfoBinding.wvInfo.apply {
             webViewClient = WebViewClient()
-            if(article.url!="") {
+            if(article.url.isNotEmpty()) {
                 loadUrl(article.url)
                 (activity as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(true)
                 (activity as AppCompatActivity).supportActionBar?.title = article.url
@@ -76,7 +76,7 @@ class InfoFragment : Fragment() {
         newsAdapter.setOnItemClickListener {
             fragmentInfoBinding.wvInfo.apply {
                 webViewClient = WebViewClient()
-                if(it.url!="") {
+                if(it.url.isNotEmpty()) {
                     loadUrl(it.url)
                     (activity as AppCompatActivity).supportActionBar?.title = it.url
                     fragmentInfoBinding.mainScroll.smoothScrollTo(0,0)
